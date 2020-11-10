@@ -1,0 +1,211 @@
+#R Data Structures
+##Vektorler 
+x = 5
+
+y = c(1,2,3,4,5) #vektor olustururken c ifadesini yazariz
+
+z <- c(10,20,30,40,50)
+
+
+z
+
+t <- c("B", 'A', "C", "D")
+
+q <- c("B", "F", 2, 5, 8, "V")
+q #sayilari karaktere donusturdu
+#bu hatalidir  C(40,52,35,,82)
+
+
+
+##Listeler
+#listeler ile ic ice veri yapilari olusturabiliriz
+l1 <- list(12,35,45,62)
+l1
+l2<- list('A', 'B')
+l2
+l3 <- list('A', 'B', 5 , 7, 9)
+l3
+#listelerde hem karakter hem numerik veri olabilir
+
+l4 <- list(c(1,2,3,4,5), 'A', 'B')
+l4
+
+
+l5 <- list('a' = c(1,2,4,5), 'b' = c(3,6,7,8))
+l5
+
+
+## Data Frame
+x <- c(10,20,30,40)
+y <- c('A', 'B', 'C', 'D')
+z <- c(11, 22, 33, 44)
+
+df <- data.frame(x, y, z)
+df
+
+View(df)
+
+
+t <- c(1,2,3,4,5)
+e <- c(45,67,56,34,23)
+data.frame(x,y,z,t) #dataframe olusturman icin icindeki vektorler aynı satir sayisina sahip olmali
+data.frame(t,e)
+
+df2 <- data.frame('AVar' = x , 'BVar' = y , 'CVar' = z)  #degiskenleri isimlendirdik
+View(df2)
+
+df3 <- data.frame(c(1,2,3,4,5) , 
+                  c(34,45,67,89 ,45) ,
+                  c(12,34,45,34 ,45))
+View(df3)
+
+df4 <- data.frame( 'a' = c(1,2,3,4,5) , 
+                   'b' = c(34,45,67,89 ,45) ,
+                   'c' = c(12,34,45,34 ,45))
+View(df4)
+
+
+
+df5 <- data.frame( a = c(1,2,3,4,5) , 
+                   b = c(34,45,67,89 ,45) ,
+                   c = c(12,34,45,34 ,45))
+View(df5)
+
+df6 <- data.frame( 'a b' = c(1,2,3,4,5) , 
+                   'b c' = c(34,45,67,89 ,45) ,
+                   'c d' = c(12,34,45,34 ,45))
+View(df6)
+
+##Matrisler
+x = c(1,2,3,4)
+
+matrix(x , nrow = 2 , ncol=2 )
+matrix(x , nrow=2 , ncol=2 , byrow=TRUE) #dorduncu arguman ile satirlara gore siralansin dedik
+
+
+y = c(1,2,3,4,5,6,7,8)
+
+matrix(y , nrow = 2 , ncol=4)
+matrix(y , nrow = 4 , ncol=2)
+
+
+matrix(x , nrow = 4 , ncol = 4)
+matrix(x , nrow = 4 , ncol = 4 , byrow = T)
+
+
+matrix(x , nrow = 5 , ncol = 5)
+
+
+#Vektorlerde eleman secme
+x <- c('A' , 'B' , 'C')
+
+# Birinci Eleman secimi
+x[1]
+
+# ikinci Eleman Secimi
+x[2]
+
+y <- c(1,2,3,4,5,6,7,8,9,10)
+
+# 1 ve 3 arasindaki elemanlar
+y[1:3]
+y[4:9]
+y[5:8]
+
+y[c(5,6,7,8)]
+
+t <- c(11,12,13,29,25,29,30,31,32)
+t[c(4,8,9)]
+t[c(4,8,15)] 
+
+t[c(1 , 2, 3)]
+t[3:8]
+
+
+
+x <- c(12,13,14,15,16)
+x
+
+# Eleman secimi
+x[1]
+x[5]
+
+# Eleman cikartma islemi
+x[-1]
+x[-5]
+
+# cikartma islemini kalici hale getirmek icin tekrar atama yapilmali
+
+x = x[-1]
+x = x[-4]
+x
+
+x <- c(12,13,14,15,16)
+y <- x[-1]
+
+# NOT: 
+# Tek satirda birden fazla komut icin ; kullanilabilir 
+x;y
+
+x[c(1,2,3)]
+x[c(-1,-2,-3)]
+
+cikartilacak <- c(2,3,1)
+x[-cikartilacak]
+
+c <- x[cikartilacak]
+c
+
+1:3
+x[1:3]
+
+
+# Ardisik indisleri cikarma
+-1:3
+x[-1:3] # Hatali cikarma 
+x[-c(1:3)]
+
+
+#Vektor Elemanlarini degistirme
+
+x <- c(10,11,21,32,43,56)
+
+# Tekil eleman degistirme
+x[2] <- 33
+x
+
+# Birden fazla elemani tek bir deger ile degistirme
+# 10 33 21 32 43 56 
+x[c(1,2)] <- 1 
+x
+
+# Birden fazla eleman degistirme
+x[c(1,2)] <- c(10,11)
+x[c(1,2)] <- c(1,2,3) #hata verir
+
+x[1:3] <- 11:13
+x
+
+
+
+
+
+#Vektorlere eleman ekleme
+x <- c(11,22,33,44)
+
+# 5. elemani ekleme 
+x[5] <- 55
+
+
+# Birden fazla eleman ekleme
+x[5:10] <- 3
+
+
+# 11. eleman NA olur
+x[12] <- 5
+
+x[11] <- 1
+x
+
+x[c(13,14)] <- c(11,12)
+x
